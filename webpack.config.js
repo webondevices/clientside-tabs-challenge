@@ -25,8 +25,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      title: "Guardian clientside tabs challeng",
+      template: "index.html",
+      filename: "index.html"
     })
   ]
 };
