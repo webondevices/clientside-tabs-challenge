@@ -1,0 +1,28 @@
+.tab-panel-container {
+  padding: 0;
+  width: 100%;
+  display: none;
+  order: 2;
+  counter-reset: links;
+}
+
+.tab {
+  width: calc(100% / 3);
+  padding: 10px;
+  color: #545454;
+  background-color: #ededed;
+  text-decoration: none;
+  order: 1;
+  font-size: 20px;
+  text-align: center;
+}
+
+.tab:target {
+  color: #333;
+  background-color: white;
+  font-weight: bold;
+}
+
+.tab:target + .tab-panel-container {
+  display: block;
+}

@@ -4,12 +4,10 @@ import "./tab.css";
 const Tab = ({ title, id, children }) => {
   return (
     <React.Fragment>
-      <a className="tab" href={`#${id}`}>
+      <a className="tab" href={`#${id}`} id={id}>
         {title}
       </a>
-      <div id={id} className="tab-panel-container">
-        {children}
-      </div>
+      <div className="tab-panel-container">{children}</div>
     </React.Fragment>
   );
 };

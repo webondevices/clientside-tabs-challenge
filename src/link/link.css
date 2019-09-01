@@ -1,0 +1,26 @@
+.list-item {
+  padding: 10px 0 20px;
+  border-top: 1px solid #ededed;
+  margin: 0 20px;
+  counter-increment: links;
+}
+
+.list-item:first-child {
+  border: none;
+}
+
+.list-item::before {
+  content: counter(links);
+  margin-right: 20px;
+  color: #777;
+}
+
+.list-item > a {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+.list-item > a:hover {
+  text-decoration: underline;
+}

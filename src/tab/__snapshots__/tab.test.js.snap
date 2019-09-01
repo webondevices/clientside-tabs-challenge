@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <a
+    className="tab"
+    href="#uk-news"
+    id="uk-news"
+  >
+    UK News
+  </a>,
+  <div
+    className="tab-panel-container"
+  />,
+]
+`;

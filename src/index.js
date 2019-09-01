@@ -5,26 +5,53 @@ import Link from "./link/link";
 import { loadArticlesFromSection } from "./utils/api";
 import "./base.css";
 
+const sections = [
+  {
+    id: "uk-news",
+    label: "UK News"
+  },
+  {
+    id: "football",
+    label: "Football"
+  },
+  {
+    id: "travel",
+    label: "Travel"
+  }
+];
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ukNews: []
-    };
+    this.state = {};
+
+    sections.forEach(section => {
+      this.state[section.id] = [];
+    });
   }
 
   componentDidMount() {
-    loadArticlesFromSection("uk-news").then(console.log);
+    sections.forEach(section => {
+      loadArticlesFromSection(section.id).then(content => {
+        this.setState({ [section.id]: content });
+      });
+    });
   }
 
   render() {
     return (
       <React.Fragment>
-        <Tab title="UK News" id="uk-news">
-          {this.state.ukNews.map(item => {
-            <Link link={item.webUrl} label={item.webTitle} />;
-          })}
-        </Tab>
+        {sections.map(section => (
+          <Tab title={section.label} id={section.id} key={section.id}>
+            {this.state[section.id].map(item => (
+              <Link
+                link={item.webUrl}
+                label={item.webTitle}
+                key={item.webTitle}
+              />
+            ))}
+          </Tab>
+        ))}
       </React.Fragment>
     );
   }
